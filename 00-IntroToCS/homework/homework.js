@@ -1,38 +1,68 @@
 "use strict";
 
+  // '1 0 0 1' --> 1x2**3 + 0x2**2 + 0x2**1 + 1x2**0
+  // 8 + 0 + 0 + 1 = 9
+
+  // ['1', '0', '0', '1']
+  //   3    2    1    0
+
 function BinarioADecimal(num) {
   // tu codigo aca:
-  // var bin7 = Math.pow(2, 7);
-  // var bin6 = Math.pow(2, 6);
-  // var bin5 = Math.pow(2, 5);
-  // var bin4 = Math.pow(2, 4);
-  // var bin3 = Math.pow(2, 3);
-  // var bin2 = Math.pow(2, 2);
-  // var bin1 = Math.pow(2, 1);
-  // var bin0 = Math.pow(2, 0);
-  // var decimal = 2^7(binario) + 2^6(binario) + 2^5(binario) + 2^4(binario) + 2^3(binario) + 2^2(binario) + 2^1(binario) + 2^0(binario);
-  // var decimal = bin7 * binario + '' + bin6 * binario + '' + bin5 * binario + '' + bin4 * binario + '' + bin3 * binario + '' + bin2 * binario + '' + bin1 * binario + '' + bin0 * binario;
-  var resultado = 0;
-  for (var i = 0; i < num.length; i++) {
-    resultado += +num[i] * 2 ** (num.length - 1 - i);
+  // necesito los datos separados
+  const arreglo = num.split(''); // []
+  let resultadoFinal = 0;
+  // por cada uno voy a hacer una operacion matematica
+  for (let i = 0; i < arreglo.length; i++) {
+    // voy a sumar un resultado final
+    resultadoFinal = resultadoFinal + arreglo[i] * Math.pow(2, arreglo.length - 1 - i)
   }
-  return resultado;
+
+  // Lo que yo hice:
+
+  // var resultado = 0;
+  // for (var i = 0; i < num.length; i++) {
+  //   resultado += num[i] * 2 ** (num.length - 1 - i);
+  // }
+  // return resultado;
+
 }
+
+  // 9 / 2 = 4 --> sobra 1
+  // 4 / 2 = 2 --> sobra 0
+  // 2 / 2 = 1 --> sobra 0
+  // 1 / 2 = 0 --> sobra 1
+
+  // 1001
 
 function DecimalABinario(num) {
   // tu codigo aca:
-  var resultado = [];
-  while (num / 2 >= 1) {
-    var temp = Math.floor(num / 2)
-    if (num % 2 === 0) {
-      resultado.unshift('0')
-    } else {
-      resultado.unshift('1')
-    }
-    if (temp === 1) resultado.unshift('1')
-    num = temp
+  // tomamos el numero y lo dividimos por 2
+  // dividir hasta que el resultado sea 0
+  // tomar todas las sobras para obtener mi numero binario
+  // guardar mu numero binario
+  if (num < 1) return 'Debes enviar un numero mayor a 0';
+  var arreglo = [];
+  while(num > 0) {
+    // hago algo
+    arreglo.unshift(num % 2);
+    num = Math.floor(num / 2);
   }
-  return resultado.join('');
+  return arreglo.join('');
+
+  // Lo que yo hice:
+
+  // var resultado = [];
+  // while (num / 2 >= 1) {
+  //   var temp = Math.floor(num / 2)
+  //   if (num % 2 === 0) {
+  //     resultado.unshift('0')
+  //   } else {
+  //     resultado.unshift('1')
+  //   }
+  //   if (temp === 1) resultado.unshift('1')
+  //   num = temp
+  // }
+  // return resultado.join('');
 }
 
 // No se pueden usar: 
