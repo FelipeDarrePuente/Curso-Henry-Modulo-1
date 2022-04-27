@@ -79,23 +79,22 @@ console.log(pm); // devuelve 'Franco', porque no lee lo que esta dentro del 'if'
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3" // devuelve 2, porque el string se convierte en numero por cohersion. |
-"2" * "3" // devuelve 6, porque la cohersion convierte los strings a numeros. |
-4 + 5 + "px" // devuelve '9px', porque suma los numeros, y despues concatena el string. |
-"$" + 4 + 5 // devuelve '$45', porque primero concatena el string, que es un caracter no numerico con el numero 4 y luego. |
-            // pasa concatena el nuevo string '$4' con el numero 5.  |
-"4" - 2 // devuelve 2, porque la cohersion hace que el string numerico se convierta a numero. |
-"4px" - 2 // devuelve NaN, porque no puede restar un string con un numero. |
-7 / 0 // devuelve Infinity, porque todo numero dividido por 0 en JavaScript es igual a 'infinito'. |
-{}[0] // |
-parseInt("09") // devuelve 9, porque lo que hace 'parseInt' es convertir los strings a numeros enteros. |
-5 && 2 // |
-2 && 5 // |
-5 || 0 // |
-0 || 5 // |
-[3]+[3]-[10] // |
-3>2>1 // |
-[] == ![] // |
+6 / "3" // devuelve 2, porque el string se convierte en numero por cohersion.
+"2" * "3" // devuelve 6, porque la cohersion convierte los strings a numeros.
+4 + 5 + "px" // devuelve '9px', porque suma los numeros, y despues concatena el string.
+"$" + 4 + 5 // devuelve '$45', porque primero concatena el string, que es un caracter no numerico con el numero 4 y luego concatena el nuevo string '$4' con el numero 5.  |
+"4" - 2 // devuelve 2, porque la cohersion hace que el string numerico se convierta a numero.
+"4px" - 2 // devuelve NaN, porque no puede restar un string con un numero.
+7 / 0 // devuelve Infinity, porque todo numero dividido por 0 en JavaScript es igual a 'infinito'.
+{}[0] // | devuelve 'Array [0]', porque no esta accediendo al objeto, solo al array que es igual a 0.
+parseInt("09") // devuelve 9, porque lo que hace 'parseInt' es convertir los strings a numeros enteros.
+5 && 2 // | devuelve 2, porque siempre devuelve lo segundo (exepto si un valor es 0 o false, devuelve false).
+2 && 5 // | devuelve 5.
+5 || 0 // | devuelve 5.
+0 || 5 // | devuelve 5.
+[3]+[3]-[10] // | devuelve 23, porque concatena cada '3' como string formando un '33', y despues lo transforma a numero, para poder restarlo con el 10 para que de el resultado '23'.
+3>2>1 // | devuelve false, porque '3>2' es igual a 'true', y despues 'true' no es mayor a '1'.
+[] == ![] // | devuelve true, porque '![]' = false. Entonces del lado derecho es un '0'. Pero del lado izquierdo es un arreglo vacio es igual que un string vacio, lo que significa que es falso tambien. Entonces 'false == false' = 'true'.
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
